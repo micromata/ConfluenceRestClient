@@ -35,11 +35,12 @@ public abstract class BaseClient {
             .excludeFieldsWithoutExposeAnnotation()
             .create();
 
-    public BaseClient(ConfluenceRestClient confluenceRestClient) {
+    public BaseClient(ConfluenceRestClient confluenceRestClient, ExecutorService executorService) {
         this.confluenceRestClient = confluenceRestClient;
         this.clientContext = confluenceRestClient.getClientContext();
         this.client = confluenceRestClient.getHttpclient();
         this.baseUri = confluenceRestClient.getBaseUri();
+        this.executorService = executorService;
     }
 
     protected JsonReader toJsonReader(InputStream inputStream)

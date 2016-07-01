@@ -2,12 +2,14 @@ package de.micromata.confluence.rest.client;
 
 import de.micromata.confluence.rest.core.domain.UserBean;
 
+import java.util.concurrent.Future;
+
 /**
  * Created by cschulc on 01.07.2016.
  */
 public interface UserClient {
 
-    UserBean getUserByUsername(String username);
+    Future<UserBean> getUserByUsername(String username);
 
-    UserBean getUserByKey(String key);
+    Future<UserBean> getUserByKey(String key);
 }
