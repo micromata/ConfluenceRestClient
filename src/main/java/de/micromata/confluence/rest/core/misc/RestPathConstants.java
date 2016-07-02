@@ -8,4 +8,8 @@ public interface RestPathConstants {
     String BASE_REST_PATH = "/rest/api";
 
     String USER = "/user";
+
+    String CURRENT = "/current";
+
+    String ANONYMUS = "/anonymous";
 }

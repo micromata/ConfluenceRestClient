@@ -1,7 +1,9 @@
 package de.micromata.confluence.rest.client;
 
 /**
- * Created by cschulc on 01.07.2016.
+ * Author: Christian Schulze (c.schulze@micromata.de)
+ * Date: 02.07.2016
+ * Project: ConfluenceTransferPlugin
  */
-public interface SpaceClient {
+public class SpaceClient {
 }

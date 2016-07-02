@@ -7,5 +7,7 @@ public interface RestParamConstants {
 
     String USERNAME = "username";
 
+    String KEY = "key";
+
     String EXPAND = "expand";
 }

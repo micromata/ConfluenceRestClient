@@ -14,6 +14,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.HttpURLConnection;
+import java.net.URISyntaxException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -29,11 +30,37 @@ public class UserClientImpl extends BaseClient implements UserClient, RestParamC
     }
 
     @Override
-    public Future<UserBean> getUserByUsername(String username) {
+    public Future<UserBean> getUserByUsername(String username) throws URISyntaxException {
         Validate.notNull(username);
+        URIBuilder uriBuilder = buildPath(USER);
+        uriBuilder.addParameter(USERNAME, username);
+        return getUser(uriBuilder);
+
+    }
+
+    @Override
+    public Future<UserBean> getUserByKey(String key) throws URISyntaxException {
+        Validate.notNull(key);
+        URIBuilder uriBuilder = buildPath(USER);
+        uriBuilder.addParameter(KEY, key);
+        return getUser(uriBuilder);
+    }
+
+    @Override
+    public Future<UserBean> getCurrentUser() throws URISyntaxException {
+        URIBuilder uriBuilder = buildPath(USER, CURRENT);
+        return getUser(uriBuilder);
+    }
+
+    @Override
+    public Future<UserBean> getAnonymousUser() throws URISyntaxException {
+        URIBuilder uriBuilder = buildPath(USER, ANONYMUS);
+        return getUser(uriBuilder);
+    }
+
+
+    private Future<UserBean> getUser(URIBuilder uriBuilder) {
         return executorService.submit(() -> {
-            URIBuilder uriBuilder = buildPath(USER);
-            uriBuilder.addParameter(USERNAME, username);
             HttpGet method = HttpMethodFactory.createGetMethod(uriBuilder.build());
             CloseableHttpResponse response = client.execute(method, clientContext);
             int statusCode = response.getStatusLine().getStatusCode();
@@ -42,21 +69,14 @@ public class UserClientImpl extends BaseClient implements UserClient, RestParamC
                 UserBean user = gson.fromJson(jsonReader, UserBean.class);
                 method.releaseConnection();
                 return user;
-            }
-            else if(statusCode == HttpURLConnection.HTTP_UNAUTHORIZED || statusCode == HttpURLConnection.HTTP_FORBIDDEN ){
+            } else if (statusCode == HttpURLConnection.HTTP_UNAUTHORIZED || statusCode == HttpURLConnection.HTTP_FORBIDDEN) {
                 return null;
-            }
-            else {
+            } else {
                 RestException restException = new RestException(response);
                 response.close();
                 method.releaseConnection();
                 throw restException;
             }
         });
-    }
-
-    @Override
-    public Future<UserBean> getUserByKey(String key) {
-        return null;
     }
 }
