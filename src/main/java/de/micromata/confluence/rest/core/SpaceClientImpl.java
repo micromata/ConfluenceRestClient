@@ -3,7 +3,7 @@ package de.micromata.confluence.rest.core;
 import com.google.gson.stream.JsonReader;
 import de.micromata.confluence.rest.ConfluenceRestClient;
 import de.micromata.confluence.rest.client.SpaceClient;
-import de.micromata.confluence.rest.core.domain.space.ResultsBean;
+import de.micromata.confluence.rest.core.domain.space.SpaceResultsBean;
 import de.micromata.confluence.rest.core.domain.space.SpaceBean;
 import de.micromata.confluence.rest.core.misc.RestException;
 import de.micromata.confluence.rest.core.misc.SpaceStatus;
@@ -36,7 +36,7 @@ public class SpaceClientImpl extends BaseClient implements SpaceClient {
     }
 
     @Override
-    public Future<ResultsBean> getSpaces(List<String> keys, SpaceType type, SpaceStatus status, List<String> labels, List<String> expand, int start, int limit) throws URISyntaxException {
+    public Future<SpaceResultsBean> getSpaces(List<String> keys, SpaceType type, SpaceStatus status, List<String> labels, List<String> expand, int start, int limit) throws URISyntaxException {
         URIBuilder uriBuilder = URIHelper.buildPath(baseUri, SPACE);
         List<NameValuePair> nameValuePairs = new ArrayList<>();
         if(keys != null && keys.isEmpty() == false){
@@ -70,7 +70,7 @@ public class SpaceClientImpl extends BaseClient implements SpaceClient {
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == HttpURLConnection.HTTP_OK) {
                 JsonReader jsonReader = getJsonReader(response);
-                ResultsBean result = gson.fromJson(jsonReader, ResultsBean.class);
+                SpaceResultsBean result = gson.fromJson(jsonReader, SpaceResultsBean.class);
                 method.releaseConnection();
                 return result;
             } else if (statusCode == HttpURLConnection.HTTP_UNAUTHORIZED || statusCode == HttpURLConnection.HTTP_FORBIDDEN) {

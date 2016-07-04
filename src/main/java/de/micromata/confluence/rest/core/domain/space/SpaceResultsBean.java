@@ -1,7 +1,7 @@
 package de.micromata.confluence.rest.core.domain.space;
 
 import com.google.gson.annotations.Expose;
-import de.micromata.confluence.rest.core.domain.LinksBean;
+import de.micromata.confluence.rest.core.domain.common.LinksBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * Date: 02.07.2016
  * Project: ConfluenceTransferPlugin
  */
-public class ResultsBean {
+public class SpaceResultsBean {
 
     @Expose
     public List<SpaceBean> results = new ArrayList<SpaceBean>();

@@ -5,5 +5,5 @@ package de.micromata.confluence.rest.core.domain;
  * Date: 02.07.2016
  * Project: ConfluenceTransferPlugin
  */
-public interface BaseBean {
+public class BaseBean {
 }

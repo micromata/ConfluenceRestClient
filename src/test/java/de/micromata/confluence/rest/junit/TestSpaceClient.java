@@ -1,7 +1,7 @@
 package de.micromata.confluence.rest.junit;
 
 import de.micromata.confluence.rest.client.SpaceClient;
-import de.micromata.confluence.rest.core.domain.space.ResultsBean;
+import de.micromata.confluence.rest.core.domain.space.SpaceResultsBean;
 import de.micromata.confluence.rest.core.domain.space.SpaceBean;
 import de.micromata.confluence.rest.core.misc.SpaceStatus;
 import de.micromata.confluence.rest.core.misc.SpaceType;
@@ -30,8 +30,8 @@ public class TestSpaceClient extends BaseTest {
         List<String> labels = new ArrayList<>();
         List<String> expand  = new ArrayList<>();
         SpaceClient spaceClient = confluenceRestClient.getSpaceClient();
-        Future<ResultsBean> future = spaceClient.getSpaces(spaceKeys, SpaceType.GLOBAL, SpaceStatus.CURRENT, labels, expand, 0, 0);
-        ResultsBean resultsBean = future.get();
+        Future<SpaceResultsBean> future = spaceClient.getSpaces(spaceKeys, SpaceType.GLOBAL, SpaceStatus.CURRENT, labels, expand, 0, 0);
+        SpaceResultsBean resultsBean = future.get();
         Assert.assertNotNull(resultsBean);
     }
 

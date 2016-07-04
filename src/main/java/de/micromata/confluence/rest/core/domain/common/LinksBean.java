@@ -1,4 +1,4 @@
-package de.micromata.confluence.rest.core.domain;
+package de.micromata.confluence.rest.core.domain.common;
 
 import com.google.gson.annotations.Expose;
 
@@ -18,6 +18,9 @@ public class LinksBean {
 
     @Expose
     private String webui;
+
+    @Expose
+    public String collection;
 
     public String getBase() {
         return base;
@@ -49,5 +52,13 @@ public class LinksBean {
 
     public void setWebui(String webui) {
         this.webui = webui;
+    }
+
+    public String getCollection() {
+        return collection;
+    }
+
+    public void setCollection(String collection) {
+        this.collection = collection;
     }
 }

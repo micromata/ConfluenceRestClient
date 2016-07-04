@@ -1,37 +1,40 @@
-package de.micromata.confluence.rest.core.domain.space;
+package de.micromata.confluence.rest.core.domain.content;
 
 import com.google.gson.annotations.Expose;
-import de.micromata.confluence.rest.core.domain.common.ExpandableBean;
 import de.micromata.confluence.rest.core.domain.common.LinksBean;
+import de.micromata.confluence.rest.core.domain.space.DescriptionBean;
 
 /**
  * Author: Christian Schulze (c.schulze@micromata.de)
- * Date: 02.07.2016
+ * Date: 04.07.2016
  * Project: ConfluenceTransferPlugin
  */
-public class SpaceBean {
+public class ContainerBean {
 
     @Expose
     public Integer id;
+
     @Expose
     public String key;
+
     @Expose
     public String name;
+
     @Expose
     public DescriptionBean description;
+
     @Expose
-    public String type;
+    public MetadataBean metadata;
+
     @Expose
     public LinksBean links;
-    @Expose
-    public ExpandableBean expandable;
 
-    public ExpandableBean getExpandable() {
-        return expandable;
+    public DescriptionBean getDescription() {
+        return description;
     }
 
-    public void setExpandable(ExpandableBean expandable) {
-        this.expandable = expandable;
+    public void setDescription(DescriptionBean description) {
+        this.description = description;
     }
 
     public Integer getId() {
@@ -58,19 +61,19 @@ public class SpaceBean {
         this.links = links;
     }
 
+    public MetadataBean getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(MetadataBean metadata) {
+        this.metadata = metadata;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

@@ -1,6 +1,7 @@
 package de.micromata.confluence.rest.core.domain;
 
 import com.google.gson.annotations.Expose;
+import de.micromata.confluence.rest.core.domain.common.LinksBean;
 
 /**
  * Created by cschulc on 01.07.2016.

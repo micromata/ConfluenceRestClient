@@ -1,6 +1,6 @@
 package de.micromata.confluence.rest.client;
 
-import de.micromata.confluence.rest.core.domain.space.ResultsBean;
+import de.micromata.confluence.rest.core.domain.space.SpaceResultsBean;
 import de.micromata.confluence.rest.core.domain.space.SpaceBean;
 import de.micromata.confluence.rest.core.misc.SpaceStatus;
 import de.micromata.confluence.rest.core.misc.SpaceType;
@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.concurrent.Future;
 
 /**
+ * Client to recieve spaces from a confluence server.
+ *
  * Author: Christian Schulze (c.schulze@micromata.de)
  * Date: 02.07.2016
  * Project: ConfluenceTransferPlugin
@@ -17,7 +19,7 @@ import java.util.concurrent.Future;
 public interface SpaceClient {
 
     /**
-     * Return a ResultBean with spaces filtered by the given arguments
+     * Get a ResultBean with spaces filtered by the given arguments
      * Every parameter can be NULL, then you get all spaces
      *
      * @param keys a list of space keys
@@ -29,10 +31,10 @@ public interface SpaceClient {
      * @param limit the limit of the number of spaces to return, this may be restricted by fixed system limits
      * @return Future with the ResultBean
      */
-   Future<ResultsBean> getSpaces(List<String> keys, SpaceType type, SpaceStatus status, List<String> label, List<String> expand, int start, int limit) throws URISyntaxException;
+   Future<SpaceResultsBean> getSpaces(List<String> keys, SpaceType type, SpaceStatus status, List<String> label, List<String> expand, int start, int limit) throws URISyntaxException;
 
     /**
-     * Return a SpaceBean for the given key
+     * Get a SpaceBean for the given key
      *
      * @param key the key
      * @param expand a comma separated list of properties to expand on the spaces

@@ -22,4 +22,10 @@ public interface RestParamConstants {
     String START = "start";
 
     String LIMIT = "limit";
+
+    String VERSION = "version";
+
+    String TITLE = "title";
+
+    String POSTING_DAY = "postingDay";
 }
