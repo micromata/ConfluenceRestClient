@@ -9,5 +9,17 @@ public interface RestParamConstants {
 
     String KEY = "key";
 
+    String SPACEKEY = "spaceKey";
+
     String EXPAND = "expand";
+
+    String TYPE = "type";
+
+    String STATUS = "status";
+
+    String LABEL = "label";
+
+    String START = "start";
+
+    String LIMIT = "limit";
 }

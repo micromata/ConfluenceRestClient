@@ -2,6 +2,7 @@ package de.micromata.confluence.rest.junit;
 
 import de.micromata.confluence.rest.ConfluenceRestClient;
 import org.junit.Before;
+import org.junit.BeforeClass;
 
 import java.io.IOException;
 import java.net.URI;

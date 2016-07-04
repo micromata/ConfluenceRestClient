@@ -7,7 +7,6 @@ import com.google.gson.annotations.Expose;
  */
 public class LinksBean {
 
-
     @Expose
     private String base;
 
@@ -16,6 +15,9 @@ public class LinksBean {
 
     @Expose
     private String self;
+
+    @Expose
+    private String webui;
 
     public String getBase() {
         return base;
@@ -39,5 +41,13 @@ public class LinksBean {
 
     public void setSelf(String self) {
         this.self = self;
+    }
+
+    public String getWebui() {
+        return webui;
+    }
+
+    public void setWebui(String webui) {
+        this.webui = webui;
     }
 }

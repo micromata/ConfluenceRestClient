@@ -22,7 +22,7 @@ import java.util.concurrent.Future;
 /**
  * Created by cschulc on 01.07.2016.
  */
-public class UserClientImpl extends BaseClient implements UserClient, RestParamConstants, RestPathConstants {
+public class UserClientImpl extends BaseClient implements UserClient {
 
 
     public UserClientImpl(ConfluenceRestClient confluenceRestClient, ExecutorService executorService) {
