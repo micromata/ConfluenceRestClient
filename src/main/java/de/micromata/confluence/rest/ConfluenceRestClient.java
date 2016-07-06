@@ -1,9 +1,11 @@
 package de.micromata.confluence.rest;
 
 import de.micromata.confluence.rest.client.ContentClient;
+import de.micromata.confluence.rest.client.SearchClient;
 import de.micromata.confluence.rest.client.SpaceClient;
 import de.micromata.confluence.rest.client.UserClient;
 import de.micromata.confluence.rest.core.ContentClientImpl;
+import de.micromata.confluence.rest.core.SearchClientImpl;
 import de.micromata.confluence.rest.core.SpaceClientImpl;
 import de.micromata.confluence.rest.core.UserClientImpl;
 import de.micromata.confluence.rest.core.misc.RestParamConstants;
@@ -55,6 +57,8 @@ public class ConfluenceRestClient implements RestPathConstants, RestParamConstan
     private SpaceClient spaceClient;
 
     private ContentClient contentClient;
+
+    private SearchClient searchClient;
 
     public ConfluenceRestClient(ExecutorService executorService) {
         this.executorService = executorService;
@@ -115,6 +119,13 @@ public class ConfluenceRestClient implements RestPathConstants, RestParamConstan
             contentClient = new ContentClientImpl(this, executorService);
         }
         return contentClient;
+    }
+
+    public SearchClient getSearchClient(){
+        if(searchClient == null){
+            searchClient = new SearchClientImpl(this, executorService);
+        }
+        return searchClient;
     }
 
     /**

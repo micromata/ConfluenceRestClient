@@ -16,4 +16,6 @@ public interface RestPathConstants {
     String SPACE = "/space";
 
     String CONTENT = "/content";
+
+    String SEARCH = "/search";
 }
