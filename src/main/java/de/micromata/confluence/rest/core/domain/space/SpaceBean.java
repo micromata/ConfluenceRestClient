@@ -1,6 +1,7 @@
 package de.micromata.confluence.rest.core.domain.space;
 
 import com.google.gson.annotations.Expose;
+import de.micromata.confluence.rest.core.domain.BaseBean;
 import de.micromata.confluence.rest.core.domain.common.ExpandableBean;
 import de.micromata.confluence.rest.core.domain.common.LinksBean;
 
@@ -9,22 +10,24 @@ import de.micromata.confluence.rest.core.domain.common.LinksBean;
  * Date: 02.07.2016
  * Project: ConfluenceTransferPlugin
  */
-public class SpaceBean {
+public class SpaceBean extends BaseBean {
 
     @Expose
-    public Integer id;
+    private String key;
     @Expose
-    public String key;
+    private String name;
     @Expose
-    public String name;
+    private DescriptionBean description;
     @Expose
-    public DescriptionBean description;
-    @Expose
-    public String type;
-    @Expose
-    public LinksBean links;
-    @Expose
-    public ExpandableBean expandable;
+    private ExpandableBean expandable;
+
+    public DescriptionBean getDescription() {
+        return description;
+    }
+
+    public void setDescription(DescriptionBean description) {
+        this.description = description;
+    }
 
     public ExpandableBean getExpandable() {
         return expandable;
@@ -32,14 +35,6 @@ public class SpaceBean {
 
     public void setExpandable(ExpandableBean expandable) {
         this.expandable = expandable;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getKey() {
@@ -50,27 +45,11 @@ public class SpaceBean {
         this.key = key;
     }
 
-    public LinksBean getLinks() {
-        return links;
-    }
-
-    public void setLinks(LinksBean links) {
-        this.links = links;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

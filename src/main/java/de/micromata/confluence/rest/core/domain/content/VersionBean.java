@@ -11,15 +11,15 @@ import de.micromata.confluence.rest.core.domain.UserBean;
 public class VersionBean {
 
     @Expose
-    public UserBean by;
+    private UserBean by;
     @Expose
-    public String when;
+    private String when;
     @Expose
-    public String message;
+    private String message;
     @Expose
-    public Integer number;
+    private Integer number;
     @Expose
-    public Boolean minorEdit;
+    private Boolean minorEdit;
 
     public UserBean getBy() {
         return by;

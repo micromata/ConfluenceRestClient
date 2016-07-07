@@ -20,7 +20,7 @@ public class LinksBean {
     private String webui;
 
     @Expose
-    public String collection;
+    private String collection;
 
     public String getBase() {
         return base;

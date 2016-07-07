@@ -1,6 +1,7 @@
 package de.micromata.confluence.rest.core.domain.content;
 
 import com.google.gson.annotations.Expose;
+import de.micromata.confluence.rest.core.domain.BaseBean;
 import de.micromata.confluence.rest.core.domain.common.LinksBean;
 import de.micromata.confluence.rest.core.domain.space.SpaceBean;
 
@@ -12,55 +13,46 @@ import java.util.List;
  * Date: 04.07.2016
  * Project: ConfluenceTransferPlugin
  */
-public class ContentBean {
+public class ContentBean extends BaseBean {
 
     @Expose
-    public String id;
+    private String status;
 
     @Expose
-    public String type;
+    private String title;
 
     @Expose
-    public String status;
+    private SpaceBean space;
 
     @Expose
-    public String title;
+    private VersionBean version;
 
     @Expose
-    public SpaceBean space;
+    private List<AncestorBean> ancestors = new ArrayList<>();
 
     @Expose
-    public VersionBean version;
+    private List<OperationBean> operations = new ArrayList<>();
 
     @Expose
-    public List<AncestorBean> ancestors = new ArrayList<>();
+    private ChildrenBean children;
 
     @Expose
-    public List<OperationBean> operations = new ArrayList<>();
+    private ChildTypesBean childTypes;
 
     @Expose
-    public ChildrenBean children;
+    private DescendantsBean descendants;
 
     @Expose
-    public ChildTypesBean childTypes;
+    private ContainerBean container;
 
     @Expose
-    public DescendantsBean descendants;
+    private BodyBean body;
 
     @Expose
-    public ContainerBean container;
+    private MetadataBean metadata;
 
     @Expose
-    public BodyBean body;
-
-    @Expose
-    public MetadataBean metadata;
-
-    @Expose
-    public RestrictionsBean restrictions;
-
-    @Expose
-    public LinksBean links;
+    private RestrictionsBean restrictions;
 
     public List<AncestorBean> getAncestors() {
         return ancestors;
@@ -110,22 +102,6 @@ public class ContentBean {
         this.descendants = descendants;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public LinksBean getLinks() {
-        return links;
-    }
-
-    public void setLinks(LinksBean links) {
-        this.links = links;
-    }
-
     public MetadataBean getMetadata() {
         return metadata;
     }
@@ -172,14 +148,6 @@ public class ContentBean {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public VersionBean getVersion() {

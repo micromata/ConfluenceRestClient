@@ -10,9 +10,9 @@ import com.google.gson.annotations.Expose;
 public class PlainBean {
 
     @Expose
-    public String value;
+    private String value;
     @Expose
-    public String representation;
+    private String representation;
 
     public String getRepresentation() {
         return representation;

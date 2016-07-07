@@ -11,13 +11,13 @@ import de.micromata.confluence.rest.core.domain.common.ExpandableBean;
 public class ViewBean {
 
     @Expose
-    public String value;
+    private String value;
 
     @Expose
-    public String representation;
+    private String representation;
 
     @Expose
-    public ExpandableBean expandable;
+    private ExpandableBean expandable;
 
     public ExpandableBean getExpandable() {
         return expandable;

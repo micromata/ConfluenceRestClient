@@ -15,15 +15,15 @@ import java.util.List;
 public class ContentResultsBean extends BaseBean {
 
     @Expose
-    public List<ContentBean> results = new ArrayList<>();
+    private List<ContentBean> results = new ArrayList<>();
     @Expose
-    public Integer start;
+    private Integer start;
     @Expose
-    public Integer limit;
+    private Integer limit;
     @Expose
-    public Integer size;
+    private Integer size;
     @Expose
-    public LinksBean _links;
+    private LinksBean _links;
 
     public LinksBean get_links() {
         return _links;

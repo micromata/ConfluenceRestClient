@@ -14,15 +14,15 @@ import java.util.List;
 public class SpaceResultsBean {
 
     @Expose
-    public List<SpaceBean> results = new ArrayList<SpaceBean>();
+    private List<SpaceBean> results = new ArrayList<SpaceBean>();
     @Expose
-    public Integer start;
+    private Integer start;
     @Expose
-    public Integer limit;
+    private Integer limit;
     @Expose
-    public Integer size;
+    private Integer size;
     @Expose
-    public LinksBean links;
+    private LinksBean links;
 
     public List<SpaceBean> getResults() {
         return results;

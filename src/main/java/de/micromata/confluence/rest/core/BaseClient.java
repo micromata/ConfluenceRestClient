@@ -4,8 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import de.micromata.confluence.rest.ConfluenceRestClient;
+import de.micromata.confluence.rest.core.custom.CqlSearchResultDeserializer;
 import de.micromata.confluence.rest.core.domain.BaseBean;
 import de.micromata.confluence.rest.core.domain.UserBean;
+import de.micromata.confluence.rest.core.domain.cql.CqlSearchResult;
 import de.micromata.confluence.rest.core.misc.RestException;
 import de.micromata.confluence.rest.core.misc.RestParamConstants;
 import de.micromata.confluence.rest.core.misc.RestPathConstants;
@@ -42,6 +44,7 @@ public abstract class BaseClient implements RestParamConstants, RestPathConstant
 
     protected Gson gson	= new GsonBuilder()
             .excludeFieldsWithoutExposeAnnotation()
+            .registerTypeAdapter(CqlSearchResult.class, new CqlSearchResultDeserializer())
             .create();
 
     public BaseClient(ConfluenceRestClient confluenceRestClient, ExecutorService executorService) {

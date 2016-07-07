@@ -10,21 +10,21 @@ import com.google.gson.annotations.Expose;
 public class ExpandableBean {
 
     @Expose
-    public String content;
+    private String content;
     @Expose
-    public String details;
+    private String details;
 
     @Expose
-    public String metadata;
+    private String metadata;
 
     @Expose
-    public String icon;
+    private String icon;
 
     @Expose
-    public String description;
+    private String description;
 
     @Expose
-    public String homepage;
+    private String homepage;
 
     public String getContent() {
         return content;

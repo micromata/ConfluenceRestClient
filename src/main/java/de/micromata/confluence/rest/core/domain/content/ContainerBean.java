@@ -12,22 +12,22 @@ import de.micromata.confluence.rest.core.domain.space.DescriptionBean;
 public class ContainerBean {
 
     @Expose
-    public Integer id;
+    private Integer id;
 
     @Expose
-    public String key;
+    private String key;
 
     @Expose
-    public String name;
+    private String name;
 
     @Expose
-    public DescriptionBean description;
+    private DescriptionBean description;
 
     @Expose
-    public MetadataBean metadata;
+    private MetadataBean metadata;
 
     @Expose
-    public LinksBean links;
+    private LinksBean links;
 
     public DescriptionBean getDescription() {
         return description;

@@ -10,7 +10,7 @@ import com.google.gson.annotations.Expose;
 public class BodyBean {
 
     @Expose
-    public ViewBean view;
+    private ViewBean view;
 
     public ViewBean getView() {
         return view;

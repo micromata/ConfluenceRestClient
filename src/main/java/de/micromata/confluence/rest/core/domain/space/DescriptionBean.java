@@ -11,7 +11,7 @@ import de.micromata.confluence.rest.core.domain.common.PlainBean;
 public class DescriptionBean {
 
     @Expose
-    public PlainBean plain;
+    private PlainBean plain;
 
     public PlainBean getPlain() {
         return plain;

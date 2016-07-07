@@ -9,6 +9,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class CqlBuilder {
 
+    public static final String WHITESPACE = " ";
+
     private StringBuffer jql = null;
 
     public CqlBuilder() {
@@ -19,24 +21,24 @@ public class CqlBuilder {
         JqlKeyword jqlKeyword = new JqlKeyword();
 
         if (field != null) {
-            jql.append(field).append(" ");
+            jql.append(field).append(WHITESPACE);
         }
         if (operator != null) {
-            jql.append(operator).append(" ");
+            jql.append(operator).append(WHITESPACE);
         }
         if (operand != null) {
             if(operand.length > 1){
                 String join = StringUtils.join(operand, ",");
                 jql.append("(").append(join).append(") ");
             }else {
-                jql.append(operand[0]).append(" ");
+                jql.append(operand[0]).append(WHITESPACE);
             }
         }
 
         return jqlKeyword;
     }
 
-    public CqlBuilder getJqlBuilder() {
+    public CqlBuilder getCqlBuilder() {
         return this;
     }
 
@@ -47,13 +49,13 @@ public class CqlBuilder {
     public class JqlKeyword {
 
         public CqlBuilder and() {
-            jql.append(EKeyword.AND).append(" ");
-            return getJqlBuilder();
+            jql.append(EKeyword.AND).append(WHITESPACE);
+            return getCqlBuilder();
         }
 
         public CqlBuilder or() {
-            jql.append(EKeyword.OR).append(" ");
-            return getJqlBuilder();
+            jql.append(EKeyword.OR).append(WHITESPACE);
+            return getCqlBuilder();
         }
 
         public String orderBy(SortOrder order, EField... fields) {
@@ -61,7 +63,7 @@ public class CqlBuilder {
                 return build();
             }
 
-            jql.append(EKeyword.ORDER_BY).append(" ");
+            jql.append(EKeyword.ORDER_BY).append(WHITESPACE);
             jql.append(fields[0]);
 
             for (int i = 1; i < fields.length; i++) {
@@ -69,7 +71,7 @@ public class CqlBuilder {
                 jql.append(fields[i]);
             }
 
-            jql.append(" " + order);
+            jql.append(WHITESPACE + order);
 
             return build();
         }

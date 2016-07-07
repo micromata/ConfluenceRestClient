@@ -1,6 +1,7 @@
 package de.micromata.confluence.rest.core.domain.cql;
 
 import com.google.gson.annotations.Expose;
+import de.micromata.confluence.rest.core.domain.BaseBean;
 import de.micromata.confluence.rest.core.domain.common.LinksBean;
 
 import java.util.ArrayList;
@@ -13,8 +14,7 @@ import java.util.List;
  */
 public class CqlSearchResult {
 
-    @Expose
-    private List<SearchResultBean> results = new ArrayList<>();
+    private List<BaseBean> results = new ArrayList<>();
     @Expose
     private int start;
     @Expose
@@ -54,13 +54,6 @@ public class CqlSearchResult {
         this.limit = limit;
     }
 
-    public List<SearchResultBean> getResults() {
-        return results;
-    }
-
-    public void setResults(List<SearchResultBean> results) {
-        this.results = results;
-    }
 
     public int getSearchDuration() {
         return searchDuration;
@@ -92,5 +85,13 @@ public class CqlSearchResult {
 
     public void setTotalSize(int totalSize) {
         this.totalSize = totalSize;
+    }
+
+    public List<BaseBean> getResults() {
+        return results;
+    }
+
+    public void setResults(List<BaseBean> results) {
+        this.results = results;
     }
 }
